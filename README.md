@@ -15,7 +15,7 @@ Taipy is a Python library for creating Business Applications. More information o
 [website](https://www.taipy.io).
 
 [Demo Covid Dashboard](https://github.com/Avaiga/demo-covid-dashboard) is a full application showing how Taipy Core and Taipy Gui can work together to build a minimalist but powerful application.
-This demo shows the fundamental mathematical optimization problem of “Production Planning”. The goal is to minimize costs while fulfilling product demand and satisfying capacity constraints.
+This demo visualizes a Covid dataset for the year 2020. Pages shows different graphs of the Covid Dataset. A Prediction page is also present to predict the number of death the fundamental mathematical optimization problem of “Production Planning”. The goal is to minimize costs while fulfilling product demand and satisfying capacity constraints.
 Some of the constraints can be modified, resulting in different scenarios. For each scenario, different graphical representations are provided. 
 
 ### Demo Type
