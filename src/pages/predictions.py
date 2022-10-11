@@ -52,18 +52,21 @@ def actualize_graph(state):
 
 predictions_md = Markdown("""
 <center>\n<|navbar|>\n</center>
-                         
-<|layout|columns=5 5 1 3|
+
+# <strong>Prediction</strong> page
+  
+<|layout|columns=5 5 5 5|
 <|{scenario_name}|input|label=Name|> <br/> <|Create|button|on_action=create_new_scenario|>
 
 **Prediction date** <br/>
-&nbsp; <|{first_date}|date|label=Prediction date|>
-<|{selected_country}|selector|lov={selector_country}|dropdown|on_change=on_change_country|label=Country|>
-
-<br/>
+<|{first_date}|date|label=Prediction date|>
 <br/>
 <|Submit|button|on_action=submit_scenario|>
+
+<|{selected_country}|selector|lov={selector_country}|dropdown|on_change=on_change_country|label=Country|>
 |>
+
+---------------------------------------
 
 <|{selected_scenario}|selector|lov={scenario_selector}|on_change=actualize_graph|dropdown|value_by_id|label=Scenario|>
 

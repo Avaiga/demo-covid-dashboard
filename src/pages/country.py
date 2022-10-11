@@ -5,7 +5,7 @@ from taipy.gui import Markdown
 
 from data.data import data
 
-selected_country = None
+selected_country = 'France'
 data_country_date = None
 
 representation_selector = ['Cumulative', 'Density']
@@ -58,18 +58,27 @@ def on_change_country(state):
 country_md = Markdown("""
 <center>\n<|navbar|>\n</center>
  
-<|{selected_representation}|toggle|lov={representation_selector}|on_change=convert_density|>
 
-# Country Statistics
+# <strong>Country</strong> Statistics
 
-<|layout|columns=1 1 1 1|
+<|layout|columns=1 1 1|
 <|{selected_country}|selector|lov={selector_country}|on_change=on_change_country|dropdown|label=Country|>
 
+<|{selected_representation}|toggle|lov={representation_selector}|on_change=convert_density|>
+|>
+
+<|layout|columns=1 1 1 1|
+<|part|class_name=card|
 ## Deaths <|{'{:,}'.format(data_country_date.iloc[-1, 6]).replace(',', ' ')}|>
+|>
 
+<|part|class_name=card|
 ## Recovered <|{'{:,}'.format(data_country_date.iloc[-1, 5]).replace(',', ' ')}|>
+|>
 
+<|part|class_name=card|
 ## Confirmed <|{'{:,}'.format(data_country_date.iloc[-1, 4]).replace(',', ' ')}|>
+|>
 |>
 
 <|layout|columns=2 1|

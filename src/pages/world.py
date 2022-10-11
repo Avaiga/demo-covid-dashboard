@@ -74,17 +74,23 @@ for i in range(len(cols)):
     
 world_md = Markdown("""
 <center>\n<|navbar|>\n</center>
-                    
-# World Statistics
+
+# <strong>World</strong> Statistics
 
 <|{selected_type}|toggle|lov={type_selector}|>
 
 <|layout|columns=1 1 1 1|
+<|part|class_name=card|
 ## Deaths <|{'{:,}'.format(np.sum(data['Deaths'])).replace(',', ' ')}|>
+|>
 
+<|part|class_name=card|
 ## Recovered <|{'{:,}'.format(np.sum(data['Recovered'])).replace(',', ' ')}|>
+|>
 
+<|part|class_name=card|
 ## Confirmed <|{'{:,}'.format(np.sum(data['Confirmed'])).replace(',', ' ')}|>
+|>
 |>
 
 
