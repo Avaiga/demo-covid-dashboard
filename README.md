@@ -30,27 +30,27 @@ This demo works with a Python version superior to 3.8. Install the dependencies 
 
 ## Introduction
 
-This  demo manage multiple pages.
+This demo manages multiple pages.
 
 ### Country page
 
-The first page represents statistics on a specific country. The country can be changed as well as the the way the data is displayed (either cumulative or density). It will interact with the line chart provided on this page.
+The first page represents statistics on a specific country. The country can be changed as well as the way the data is displayed (either cumulative or density). It will interact with the line chart provided on this page.
 
 The pie chart shows the repartition of cases between Confirmed, Recovered, and Deaths. 
 
 ### Map
 
-A map can be found on this page to explore the data. Colors and sizes are dependant on the number of Deaths of this location.
+A map can be found on this page to explore the data. Colors and sizes are dependent on the number of Deaths in this location.
 
 ### Predictions
 
-This page lets anyone create scenarios to predict on certain dates for a specific country. To create a scenario, a name has to be written and the 'Create' button pressed. The prediction will be created after clicking 'Submit' based on the prediction date and the country.
+This page lets anyone create scenarios to predict certain dates for a specific country. The user has to write a name and press the 'Create' button to create a button. The prediction will be created after clicking 'Submit' based on the prediction date and the country.
 
 A list of scenarios can be found and any scenario can be selected to display their predictions.
 
 ### World page
 
-Statistics on the World are presented on the page. A line chart and pie chart displays the data. Moreover, absolute or relative impact of Covid countries can be seen by changing the toggle between 'Absolute' and 'Relative'. 
+Statistics on the World are presented on the page. A line chart and pie chart display the data. Moreover, the absolute or relative impact of Covid countries can be seen by changing the toggle between 'Absolute' and 'Relative'. 
 
 ## Directory Structure
 
