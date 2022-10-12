@@ -56,10 +56,10 @@ predictions_md = Markdown("""
 # <strong>Prediction</strong> page
   
 <|layout|columns=5 5 5 5|
-**Scenario name** <br/>
+**Scenario Name** <br/>
 <|{scenario_name}|input|label=Name|> <br/> <|Create|button|on_action=create_new_scenario|>
 
-**Prediction date** <br/>
+**Prediction Date** <br/>
 <|{first_date}|date|label=Prediction date|>
 <br/>
 <|Submit|button|on_action=submit_scenario|>
