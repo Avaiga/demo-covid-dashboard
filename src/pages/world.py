@@ -81,15 +81,15 @@ world_md = Markdown("""
 
 <|layout|columns=1 1 1 1|
 <|part|class_name=card|
-## Deaths <|{'{:,}'.format(np.sum(data['Deaths'])).replace(',', ' ')}|>
+## Deaths <|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Deaths']))).replace(',', ' ')}|>
 |>
 
 <|part|class_name=card|
-## Recovered <|{'{:,}'.format(np.sum(data['Recovered'])).replace(',', ' ')}|>
+## Recovered <|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Recovered']))).replace(',', ' ')}|>
 |>
 
 <|part|class_name=card|
-## Confirmed <|{'{:,}'.format(np.sum(data['Confirmed'])).replace(',', ' ')}|>
+## Confirmed <|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Confirmed']))).replace(',', ' ')}|>
 |>
 |>
 

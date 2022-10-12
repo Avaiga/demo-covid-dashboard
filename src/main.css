@@ -70,7 +70,7 @@ body,
 #root {
   /* Using padding instead of margin to space the whole content*/
   margin: 0;
-  padding: 5%;
+  padding: 1%;
 }
 
 /* Layout grids */

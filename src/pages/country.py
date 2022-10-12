@@ -69,15 +69,15 @@ country_md = Markdown("""
 
 <|layout|columns=1 1 1 1|
 <|part|class_name=card|
-## Deaths <|{'{:,}'.format(data_country_date.iloc[-1, 6]).replace(',', ' ')}|>
+## Deaths <|{'{:,}'.format(int(data_country_date.iloc[-1, 6])).replace(',', ' ')}|>
 |>
 
 <|part|class_name=card|
-## Recovered <|{'{:,}'.format(data_country_date.iloc[-1, 5]).replace(',', ' ')}|>
+## Recovered <|{'{:,}'.format(int(data_country_date.iloc[-1, 5])).replace(',', ' ')}|>
 |>
 
 <|part|class_name=card|
-## Confirmed <|{'{:,}'.format(data_country_date.iloc[-1, 4]).replace(',', ' ')}|>
+## Confirmed <|{'{:,}'.format(int(data_country_date.iloc[-1, 4])).replace(',', ' ')}|>
 |>
 |>
 

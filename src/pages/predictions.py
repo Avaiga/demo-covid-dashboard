@@ -56,6 +56,7 @@ predictions_md = Markdown("""
 # <strong>Prediction</strong> page
   
 <|layout|columns=5 5 5 5|
+**Scenario name** <br/>
 <|{scenario_name}|input|label=Name|> <br/> <|Create|button|on_action=create_new_scenario|>
 
 **Prediction date** <br/>
@@ -66,9 +67,15 @@ predictions_md = Markdown("""
 <|{selected_country}|selector|lov={selector_country}|dropdown|on_change=on_change_country|label=Country|>
 |>
 
+<br/>
+
 ---------------------------------------
 
+<br/>
+
 <|{selected_scenario}|selector|lov={scenario_selector}|on_change=actualize_graph|dropdown|value_by_id|label=Scenario|>
+
+<br/>
 
 <|{result}|chart|x=Date|y[1]=Deaths_x|type[1]=bar|y[2]=Predictions_x|y[3]=Predictions_y|>
 """)
