@@ -21,7 +21,7 @@ This demo visualizes a Covid dataset for the year 2020. Pages shows different gr
 - **Level**: Advanced
 - **Topic**: Taipy-GUI, Taipy-Core
 - **Components/Controls**: 
-  - Taipy GUI: selector, chart, toggle, slider, expandable, table
+  - Taipy GUI: selector, chart, map, toggle, CSS Style, multi-pages, layout
   - Taipy Core: datanode, pipeline, scenario
 
 ## How to run
