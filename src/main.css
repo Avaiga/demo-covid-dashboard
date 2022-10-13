@@ -47,6 +47,13 @@ h2 .taipy-text {
   font-weight: 600;
 }
 
+hr {
+  margin-top: 3rem;
+  border-color: #d8d8d8;
+  border-top: 0;
+}
+
+
 /*
 ======= BODY =======
 In order to help distinguish the content from the background, and to help the different columns, sections to pop-out, use a slightly grey background for the whole app.

@@ -67,11 +67,7 @@ predictions_md = Markdown("""
 <|{selected_country}|selector|lov={selector_country}|dropdown|on_change=on_change_country|label=Country|>
 |>
 
-<br/>
-
 ---------------------------------------
-
-<br/>
 
 <|{selected_scenario}|selector|lov={scenario_selector}|on_change=actualize_graph|dropdown|value_by_id|label=Scenario|>
 
