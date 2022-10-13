@@ -16,8 +16,6 @@ options = {"unselected":{"marker":{"opacity":0.5}}}
 country_md = "<|{data_country_date}|chart|type=bar|x=Date|y[1]=Deaths|y[2]=Recovered|y[3]=Confirmed|layout={layout}|options={options}|>"
 
 
-
-
 def initialize_case_evolution(data, selected_country='France'):
     # Aggregation of the dataframe to erase the regions that will not be used here
     data_country_date = data.groupby(["Country/Region",'Date'])\
