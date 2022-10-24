@@ -8,9 +8,10 @@ from config.config import scenario_cfg
 
 scenario_selector = [(s.id, s.name) for s in tp.get_scenarios()]
 selected_scenario = None
+selected_date = dt.datetime(2020,10,1)
 
-first_date = dt.datetime(2020,10,1)
-
+scenario_country = "No selected scenario"
+scenario_date = "No selected scenario"
 scenario_name = ""
 
 result = pd.DataFrame({"Date":[dt.datetime(2020,1,1)],
@@ -32,7 +33,7 @@ def submit_scenario(state):
     if state.selected_scenario is not None:
         scenario = tp.get(state.selected_scenario)
         scenario.country.write(state.selected_country)
-        scenario.date.write(state.first_date.replace(tzinfo=None))
+        scenario.date.write(state.selected_date.replace(tzinfo=None))
         tp.submit(scenario)
         actualize_graph(state)
     
@@ -47,20 +48,22 @@ def actualize_graph(state):
             state.result = result_rd.merge(result_arima, on="Date", how="outer").sort_values(by='Date')
         else:
             state.result = result
-        state.selected_country = scenario.country.read()
-        state.first_date = scenario.date.read()
+        state.scenario_country = scenario.country.read()
+        state.scenario_date = scenario.date.read().strftime("%d %B %Y")
 
 predictions_md = Markdown("""
 <center>\n<|navbar|>\n</center>
 
 # <strong>Prediction</strong> page
   
+## Scenario Creation
+  
 <|layout|columns=5 5 5 5|
 **Scenario Name** <br/>
 <|{scenario_name}|input|label=Name|> <br/> <|Create|button|on_action=create_new_scenario|>
 
 **Prediction Date** <br/>
-<|{first_date}|date|label=Prediction date|>
+<|{selected_date}|date|label=Prediction date|>
 <br/>
 <|Submit|button|on_action=submit_scenario|>
 
@@ -69,8 +72,19 @@ predictions_md = Markdown("""
 
 ---------------------------------------
 
-<|{selected_scenario}|selector|lov={scenario_selector}|on_change=actualize_graph|dropdown|value_by_id|label=Scenario|>
+## Result
 
+<|layout|columns=2 3 3|
+<|{selected_scenario}|selector|lov={scenario_selector}|on_change=actualize_graph|dropdown|value_by_id|label=Scenario|> 
+
+<|part|class_name=card|
+### Country of prediction : <|{scenario_country}|>
+|>
+
+<|part|class_name=card|
+### Date of prediction : <|{scenario_date}|>
+|>
+|>
 <br/>
 
 <|{result}|chart|x=Date|y[1]=Deaths_x|type[1]=bar|y[2]=Predictions_x|y[3]=Predictions_y|>

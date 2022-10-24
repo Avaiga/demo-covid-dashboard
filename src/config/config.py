@@ -21,7 +21,7 @@ country_cfg = Config.configure_data_node(id="country", default_data="France",
                                          cacheable=True, validity_period=dt.timedelta(days=5))
 
 
-date_cfg = Config.configure_data_node(id="date", default_data=dt.datetime(2020,10,10),
+date_cfg = Config.configure_data_node(id="date", default_data=dt.datetime(2020,10,1),
                                          cacheable=True, validity_period=dt.timedelta(days=5))
 
 final_data_cfg =  Config.configure_data_node(id="final_data",
