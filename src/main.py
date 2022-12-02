@@ -6,7 +6,7 @@ from pages.country import country_md, on_change_country,\
                           selected_representation, data_country_date, pie_chart
 from pages.world import world_md
 from pages.map import map_md
-from pages.predictions import predictions_md
+from pages.predictions import predictions_md, selected_scenario, result, scenario_country, scenario_date
 
 from data.data import data
 
@@ -19,6 +19,7 @@ pages = {
     "Map":map_md,
     "Predictions":predictions_md
 }
+
 
 gui_multi_pages = Gui(pages=pages)
 

@@ -1,4 +1,4 @@
-from taipy.gui import Markdown
+from taipy.gui import Markdown, invoke_long_callback
 import taipy as tp 
 import pandas as pd
 
@@ -24,7 +24,13 @@ def create_new_scenario(state):
         state.scenario_selector += [(scenario.id, scenario.name)]
         state.selected_scenario = scenario.id
         actualize_graph(state)
-    
+        
+def submit_heavy(scenario):
+    tp.submit(scenario)
+
+def submit_status(state, status):
+    actualize_graph(state)
+
 def submit_scenario(state):
     # 1) get the selected scenario
     # 2) write in country Data Node, the selected country
@@ -34,9 +40,8 @@ def submit_scenario(state):
         scenario = tp.get(state.selected_scenario)
         scenario.country.write(state.selected_country)
         scenario.date.write(state.selected_date.replace(tzinfo=None))
-        tp.submit(scenario)
-        actualize_graph(state)
-    
+        invoke_long_callback(state, submit_heavy, [scenario], submit_status)
+
 def actualize_graph(state):
     # 1) update the result dataframe
     # 2) change selected_country with the predicted country of the scenario
