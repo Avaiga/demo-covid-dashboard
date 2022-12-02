@@ -44,7 +44,7 @@ A map can be found on this page to explore the data. Colors and sizes are depend
 
 ### Predictions
 
-This page lets anyone create scenarios to predict certain dates for a specific country. The user has to write a name and press the 'Create' button to create a button. The prediction will be created after clicking 'Submit' based on the prediction date and the country.
+This page lets anyone create scenarios to predict certain dates for a specific country. The user has to write a name and press the 'Create' button to create a scenario. The prediction will be created after clicking 'Submit' based on the prediction date and the country.
 
 A list of scenarios can be found and any scenario can be selected to display their predictions.
 
