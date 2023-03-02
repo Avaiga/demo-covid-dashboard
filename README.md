@@ -26,7 +26,7 @@ This demo visualizes a Covid dataset for the year 2020. Pages shows different gr
 
 ## How to run
 
-This demo works with a Python version superior to 3.8. Install the dependencies of the *Pipfile* and run the *main.py* in the `src/` folder.
+This demo works with a Python version superior to 3.8. Install the dependencies of the *Pipfile* and run the *main.py* in the `src/` folder. You can also find a *requirements.txt* in the `src/` folder.
 
 ## Introduction
 
