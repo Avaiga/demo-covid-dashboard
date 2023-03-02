@@ -1,4 +1,3 @@
-
 from taipy.gui import Markdown
 import numpy as np
 
