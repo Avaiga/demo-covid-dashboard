@@ -1,6 +1,5 @@
 
 from taipy.gui import Markdown
-import requests
 import numpy as np
 
 import json
