@@ -1,10 +1,5 @@
 # Installation
 
-The latest stable version of _demo-stock-visualization_ is available through _pip_:
-```
-pip install demo-stock-visualization
-```
-
 ## With requirements.txt
 
 ```
