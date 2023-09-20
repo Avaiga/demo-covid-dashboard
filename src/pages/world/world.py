@@ -15,26 +15,25 @@ def initialize_world(data):
                                     'Date'])\
                             .sum()\
                             .reset_index()
-                            
-    pop = json.load(open("data/pop.json","r"))
+
+    with open("data/pop.json","r") as f:                    
+        pop = json.load(f)
     
-    data_world['Population'] = [0]*len(data_world)
-    for i in range(len(data_world)):
-        data_world['Population'][i] = pop[data_world.loc[i, "Country/Region"]][1]
+    data_world['Population'] = data_world['Country/Region'].map(lambda x: pop.get(x, [None, 0])[1])
+
     data_world = data_world.dropna()\
                             .reset_index()
     data_world['Deaths/100k'] = data_world.loc[:,'Deaths']/data_world.loc[:,'Population']*100000
     
-    data_world_pie_absolute = data_world.groupby(["Country/Region"])\
+    data_world_pie_absolute = data_world[['Country/Region', 'Deaths', 'Recovered', 'Confirmed']].groupby(["Country/Region"])\
                                         .max()\
                                         .sort_values(by='Deaths', ascending=False)[:20]\
                                         .reset_index()
                                 
-    data_world_pie_relative = data_world.groupby(["Country/Region"])\
+    data_world_pie_relative = data_world[['Country/Region', 'Deaths/100k']].groupby(["Country/Region"])\
                                         .max()\
                                         .sort_values(by='Deaths/100k', ascending=False)[:20]\
-                                        .reset_index()\
-                                        .drop(columns=['Deaths'])
+                                        .reset_index()
     
     country_absolute = data_world_pie_absolute['Country/Region'].unique().tolist()
     country_relative = data_world_pie_relative.loc[:,'Country/Region'].unique().tolist()
@@ -70,41 +69,4 @@ for i in range(len(cols)):
     data_world_evolution_relative_properties[f'y[{i}]'] = cols[i]
     
     
-world_md = Markdown("""
-<center>\n<|navbar|>\n</center>
-
-# <strong>World</strong> Statistics
-
-<|{selected_type}|toggle|lov={type_selector}|>
-
-<|layout|columns=1 1 1 1|
-<|part|class_name=card|
-## Deaths <|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Deaths']))).replace(',', ' ')}|>
-|>
-
-<|part|class_name=card|
-## Recovered <|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Recovered']))).replace(',', ' ')}|>
-|>
-
-<|part|class_name=card|
-## Confirmed <|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Confirmed']))).replace(',', ' ')}|>
-|>
-|>
-
-
-<|part|render={selected_type=='Absolute'}|
-<|layout|columns=1 2|
-<|{data_world_pie_absolute}|chart|type=pie|label=Country/Region|x=Deaths|>
-
-<|{data_world_evolution_absolute}|chart|properties={data_world_evolution_absolute_properties}|>
-|>
-|>
-
-<|part|render={selected_type=='Relative'}|
-<|layout|columns=1 2|
-<|{data_world_pie_relative}|chart|type=pie|label=Country/Region|x=Deaths/100k|>
-
-<|{data_world_evolution_relative}|chart|properties={data_world_evolution_relative_properties}|>
-|>
-|>
-""")
+world_md = Markdown("pages/world/world.md")
