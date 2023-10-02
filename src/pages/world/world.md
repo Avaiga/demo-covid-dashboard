@@ -1,24 +1,24 @@
 # **World**{: .color-primary} Statistics
 
-<|{selected_type}|toggle|lov={type_selector}|>
 
-<|layout|columns=1 1 1 1|
-<|part|class_name=card m2|
+<|layout|columns=1 1 1 1|gap=50px|
+<|part|class_name=card|
 ## Deaths
 <|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Deaths']))).replace(',', ' ')}|>
 |>
 
-<|part|class_name=card m2|
+<|part|class_name=card|
 ## Recovered
 <|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Recovered']))).replace(',', ' ')}|>
 |>
 
-<|part|class_name=card m2|
+<|part|class_name=card|
 ## Confirmed
 <|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Confirmed']))).replace(',', ' ')}|>
 |>
 |>
 
+<|{selected_type}|toggle|lov={type_selector}|>
 
 <|part|render={selected_type=='Absolute'}|
 <|layout|columns=1 2|

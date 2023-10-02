@@ -6,20 +6,20 @@
 <|{selected_representation}|toggle|lov={representation_selector}|on_change=convert_density|>
 |>
 
-<|layout|columns=1 1 1 1|
-<|part|class_name=card m2|
+<|layout|columns=1 1 1 1|gap=50px|
+<|part|class_name=card|
 ## Deaths
-<|{'{:,}'.format(int(data_country_date.iloc[-1, 6])).replace(',', ' ')}|>
+<|{'{:,}'.format(int(data_country_date.iloc[-1]['Deaths'])).replace(',', ' ')}|>
 |>
 
-<|part|class_name=card m2|
+<|part|class_name=card|
 ## Recovered
-<|{'{:,}'.format(int(data_country_date.iloc[-1, 5])).replace(',', ' ')}|>
+<|{'{:,}'.format(int(data_country_date.iloc[-1]['Recovered'])).replace(',', ' ')}|>
 |>
 
-<|part|class_name=card m2|
+<|part|class_name=card|
 ## Confirmed
-<|{'{:,}'.format(int(data_country_date.iloc[-1, 4])).replace(',', ' ')}|>
+<|{'{:,}'.format(int(data_country_date.iloc[-1]['Confirmed'])).replace(',', ' ')}|>
 |>
 |>
 
