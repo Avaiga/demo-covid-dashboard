@@ -1,8 +1,9 @@
 import pandas as pd
-from pmdarima import auto_arima
 from sklearn.linear_model import LinearRegression
 import datetime as dt
 import numpy as np
+from pmdarima import auto_arima
+
 
 
 def add_features(data):
@@ -13,8 +14,9 @@ def add_features(data):
     data["Day of week"] = dates.dt.dayofweek
     return data
 
-def create_train_data(final_data, date):
-    bool_index = pd.to_datetime(final_data['Date']) <= date
+def create_train_data(final_data, date:dt.datetime):
+    date = date.date() if type(date) == dt.datetime else date
+    bool_index = pd.to_datetime(final_data['Date']).dt.date <= date
     train_data = final_data[bool_index]
     return train_data
 
@@ -47,8 +49,6 @@ def train_arima(train_data):
 def forecast(model):
     predictions = model.predict(n_periods=60)
     return np.array(predictions)
-
-
 
 
 def concat(final_data, predictions_arima, predictions_linear_regression, date):

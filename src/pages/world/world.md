@@ -1,30 +1,32 @@
 # **World**{: .color-primary} Statistics
 
-
+<br/>
 <|layout|columns=1 1 1 1|gap=50px|
-<|part|class_name=card|
-## Deaths
-<|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Deaths']))).replace(',', ' ')}|>
+<|card|
+**Deaths**{: .color-primary}
+<|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Deaths']))).replace(',', ' ')}|text|class_name=h2|>
+|>
+
+<|card|
+**Recovered**{: .color-primary}
+<|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Recovered']))).replace(',', ' ')}|text|class_name=h2|>
 |>
 
 <|part|class_name=card|
-## Recovered
-<|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Recovered']))).replace(',', ' ')}|>
+**Confirmed**{: .color-primary}
+<|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Confirmed']))).replace(',', ' ')}|text|class_name=h2|>
+|>
 |>
 
-<|part|class_name=card|
-## Confirmed
-<|{'{:,}'.format(int(np.sum(data_world_pie_absolute['Confirmed']))).replace(',', ' ')}|>
-|>
-|>
+<br/>
 
 <|{selected_type}|toggle|lov={type_selector}|>
 
 <|part|render={selected_type=='Absolute'}|
 <|layout|columns=1 2|
-<|{data_world_pie_absolute}|chart|type=pie|labels=Country/Region|values=Deaths|>
+<|{data_world_pie_absolute}|chart|type=pie|labels=Country/Region|values=Deaths|title=Distribution around the World|>
 
-<|{data_world_evolution_absolute}|chart|properties={data_world_evolution_absolute_properties}|>
+<|{data_world_evolution_absolute}|chart|properties={data_world_evolution_absolute_properties}|title=Evolution around the World|>
 |>
 |>
 
