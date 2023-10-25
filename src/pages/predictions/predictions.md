@@ -1,6 +1,6 @@
   
   
-<|layout|columns=2 8|gap=50px|
+<|layout|columns=2 9|gap=50px|
 <sidebar|sidebar|
 **Scenario** Creation
 
