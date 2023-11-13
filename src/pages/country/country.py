@@ -13,7 +13,6 @@ selected_representation = representation_selector[0]
 
 layout = {'barmode':'stack', "hovermode":"x"}
 options = {"unselected":{"marker":{"opacity":0.5}}}
-country_md = "<|{data_country_date}|chart|type=bar|x=Date|y[1]=Deaths|y[2]=Recovered|y[3]=Confirmed|layout={layout}|options={options}|>"
 
 
 def initialize_case_evolution(data, selected_country='France'):
@@ -49,39 +48,8 @@ def on_change_country(state):
     state.data_country_date = initialize_case_evolution(data, state.selected_country)
     state.pie_chart = pd.DataFrame({"labels": ["Deaths", "Recovered", "Confirmed"],
                                     "values": [state.data_country_date.iloc[-1, 6], state.data_country_date.iloc[-1, 5], state.data_country_date.iloc[-1, 4]]})
-    if state.selected_representation == 'Density':
-        convert_density(state)
+    
+    convert_density(state)
 
 
-country_md = Markdown("""
-<center>\n<|navbar|>\n</center>
- 
-
-# <strong>Country</strong> Statistics
-
-<|layout|columns=1 1 1|
-<|{selected_country}|selector|lov={selector_country}|on_change=on_change_country|dropdown|label=Country|>
-
-<|{selected_representation}|toggle|lov={representation_selector}|on_change=convert_density|>
-|>
-
-<|layout|columns=1 1 1 1|
-<|part|class_name=card|
-## Deaths <|{'{:,}'.format(int(data_country_date.iloc[-1, 6])).replace(',', ' ')}|>
-|>
-
-<|part|class_name=card|
-## Recovered <|{'{:,}'.format(int(data_country_date.iloc[-1, 5])).replace(',', ' ')}|>
-|>
-
-<|part|class_name=card|
-## Confirmed <|{'{:,}'.format(int(data_country_date.iloc[-1, 4])).replace(',', ' ')}|>
-|>
-|>
-
-<|layout|columns=2 1|
-<|{data_country_date}|chart|type=bar|x=Date|y[3]=Deaths|y[2]=Recovered|y[1]=Confirmed|layout={layout}|options={options}|>
-
-<|{pie_chart}|chart|type=pie|x=values|label=labels|>
-|>
-""")
+country_md = Markdown("pages/country/country.md")

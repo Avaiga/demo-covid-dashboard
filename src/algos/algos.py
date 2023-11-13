@@ -1,8 +1,9 @@
 import pandas as pd
-from pmdarima import auto_arima
 from sklearn.linear_model import LinearRegression
 import datetime as dt
 import numpy as np
+from pmdarima import auto_arima
+
 
 
 def add_features(data):
@@ -13,8 +14,9 @@ def add_features(data):
     data["Day of week"] = dates.dt.dayofweek
     return data
 
-def create_train_data(final_data, date):
-    bool_index = pd.to_datetime(final_data['Date']) <= date
+def create_train_data(final_data, date:dt.datetime):
+    date = date.date() if type(date) == dt.datetime else date
+    bool_index = pd.to_datetime(final_data['Date']).dt.date <= date
     train_data = final_data[bool_index]
     return train_data
 
@@ -49,13 +51,21 @@ def forecast(model):
     return np.array(predictions)
 
 
-def result(final_data, predictions, date):
-    dates = pd.to_datetime([date + dt.timedelta(days=i)
-                            for i in range(len(predictions))])
-    final_data['Date'] = pd.to_datetime(final_data['Date'])
-    predictions = pd.concat([pd.Series(dates, name="Date"),
-                             pd.Series(predictions, name="Predictions")], axis=1)
-    return final_data.merge(predictions, on="Date", how="outer")
+def concat(final_data, predictions_arima, predictions_linear_regression, date):
+    def  _convert_predictions(final_data, predictions, date, label='Predictions'):
+        dates = pd.to_datetime([date + dt.timedelta(days=i)
+                                for i in range(len(predictions))])
+        final_data['Date'] = pd.to_datetime(final_data['Date'])
+        final_data = final_data[['Date','Deaths']]
+        predictions = pd.concat([pd.Series(dates, name="Date"),
+                                 pd.Series(predictions, name=label)], axis=1)
+        return final_data.merge(predictions, on="Date", how="outer")
+
+
+    result_arima = _convert_predictions(final_data, predictions_arima, date, label='ARIMA')
+    result_linear_regression = _convert_predictions(final_data, predictions_linear_regression, date, label='Linear Regression')
+
+    return result_arima.merge(result_linear_regression, on=["Date", 'Deaths'], how="outer").sort_values(by='Date')
 
 
 def train_linear_regression(train_data):    
