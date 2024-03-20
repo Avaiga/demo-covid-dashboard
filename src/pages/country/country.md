@@ -1,4 +1,8 @@
-# **Country**{: .color-primary} Statistics
+# Covid Dashboard - **Country**{: .color-primary} Statistics
+
+This page provides a view of the COVID-19 pandemic's impact in a selectd country, with statistics on the number of confirmed cases, recoveries, vaccination and fatalities.
+
+<br/>
 
 <|layout|columns=1 1 1|
 <|{selected_country}|selector|lov={selector_country}|on_change=on_change_country|dropdown|label=Country|>
@@ -8,23 +12,32 @@
 
 <br/>
 
-<|layout|columns=1 1 1 1|gap=50px|
+<|layout|columns=2 2 2 2 2 1|gap=35px|
 <|card|
 **Deaths**{: .color-primary}
-<|{'{:,}'.format(int(data_country_date.iloc[-1]['Deaths'])).replace(',', ' ')}|text|class_name=h2|>
+<|{to_text(data_country_date.iloc[-1]['Deaths'])}|text|class_name=h2|>
 |>
 
 <|card|
 **Recovered**{: .color-primary}
-<|{'{:,}'.format(int(data_country_date.iloc[-1]['Recovered'])).replace(',', ' ')}|text|class_name=h2|>
+<|{to_text(data_country_date.iloc[-1]['Recovered'])}|text|class_name=h2|>
 |>
 
 <|card|
 **Confirmed**{: .color-primary}
-<|{'{:,}'.format(int(data_country_date.iloc[-1]['Confirmed'])).replace(',', ' ')}|text|class_name=h2|>
-|>
+<|{to_text(data_country_date.iloc[-1]['Confirmed'])}|text|class_name=h2|>
 |>
 
+<|card|
+**Vaccinated Population**{: .color-primary}
+<|{to_text(get_vaccination_stats(vaccination, selected_country)['Total_First_Vaccination'])}|text|class_name=h2|>
+|>
+
+<|card|
+**Percentage of Vaccination**{: .color-primary}
+<|{to_text(get_vaccination_stats(vaccination, selected_country)['Rate_First_Vaccination'])} %|text|class_name=h2|>
+|>
+|>
 <br/>
 
 <|layout|columns=2 1|
@@ -32,3 +45,7 @@
 
 <|{pie_chart}|chart|type=pie|values=values|labels=labels|title=Distribution between cases|>
 |>
+
+<br/>
+
+The data reflects the period from the onset of the pandemic in March 2020 through November 2020, highlighting key metrics to gauge the public health response and the efficacy of measures taken to control the spread of the virus. For projections and additional insights, please navigate to the 'Predictions' tab.

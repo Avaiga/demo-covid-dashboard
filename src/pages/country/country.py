@@ -3,7 +3,7 @@ import pandas as pd
 
 from taipy.gui import Markdown
 
-from data.data import data
+from data.data import data, vaccination
 
 selected_country = 'France'
 data_country_date = None
@@ -50,6 +50,12 @@ def on_change_country(state):
                                     "values": [state.data_country_date.iloc[-1, 6], state.data_country_date.iloc[-1, 5], state.data_country_date.iloc[-1, 4]]})
     
     convert_density(state)
+
+
+def get_vaccination_stats(vaccination, selected_country):
+    vaccination_stats = vaccination[vaccination['COUNTRY'] == selected_country]
+    print(vaccination_stats)
+    return vaccination_stats
 
 
 country_md = Markdown("pages/country/country.md")
