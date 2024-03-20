@@ -24,4 +24,4 @@ gui_multi_pages = Gui(pages=pages)
 if __name__ == '__main__':
     tp.Core().run()
     
-    gui_multi_pages.run(title="Covid Dashboard", port=1002, host="0.0.0.0")
+    gui_multi_pages.run(title="Covid Dashboard")
