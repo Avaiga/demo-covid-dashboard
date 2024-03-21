@@ -3,30 +3,30 @@
 Tracking the Global Reach and Trends of the COVID-19 Pandemic.
 
 <br/>
-<|layout|columns=2 2 2 2 2 1|gap=25px|
+<|layout|columns=2 2 2 2 2 1|gap=15px|
 <|card|
 **Deaths**{: .color-primary}
-<|{to_text(np.sum(data_world_pie_absolute['Deaths']))}|text|class_name=h2|>
+<|{to_text(np.sum(data_world_pie_absolute['Deaths']))}|text|class_name=h3|>
 |>
 
 <|card|
 **Recovered**{: .color-primary}
-<|{to_text(np.sum(data_world_pie_absolute['Recovered']))}|text|class_name=h2|>
+<|{to_text(np.sum(data_world_pie_absolute['Recovered']))}|text|class_name=h3|>
 |>
 
 <|card|
 **Confirmed**{: .color-primary}
-<|{to_text(np.sum(data_world_pie_absolute['Confirmed']))}|text|class_name=h2|>
+<|{to_text(np.sum(data_world_pie_absolute['Confirmed']))}|text|class_name=h3|>
 |>
 
 <|card|
 **Total vaccination**{: .color-primary}
-<|{to_text(np.sum(vaccination['Total_First_Vaccination']))}|text|class_name=h2|>
+<|{to_text(np.sum(vaccination['Total_First_Vaccination']))}|text|class_name=h3|>
 |>
 
 <|card|
 **Vaccination rate**{: .color-primary}
-<|{to_text(np.mean(vaccination['Rate_First_Vaccination']))} %|text|class_name=h2|>
+<|{to_text(np.mean(vaccination['Rate_First_Vaccination']))} %|text|class_name=h3|>
 |>
 |>
 

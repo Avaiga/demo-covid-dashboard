@@ -15,27 +15,27 @@ This page provides a view of the COVID-19 pandemic's impact in a selectd country
 <|layout|columns=2 2 2 2 2 1|gap=25px|
 <|card|
 **Deaths**{: .color-primary}
-<|{to_text(data_country_date.iloc[-1]['Deaths'])}|text|class_name=h2|>
+<|{to_text(data_country_date.iloc[-1]['Deaths'])}|text|class_name=h3|>
 |>
 
 <|card|
 **Recovered**{: .color-primary}
-<|{to_text(data_country_date.iloc[-1]['Recovered'])}|text|class_name=h2|>
+<|{to_text(data_country_date.iloc[-1]['Recovered'])}|text|class_name=h3|>
 |>
 
 <|card|
 **Confirmed**{: .color-primary}
-<|{to_text(data_country_date.iloc[-1]['Confirmed'])}|text|class_name=h2|>
+<|{to_text(data_country_date.iloc[-1]['Confirmed'])}|text|class_name=h3|>
 |>
 
 <|card|
 **Vaccinated Population**{: .color-primary}
-<|{to_text(get_vaccination_stats(vaccination, selected_country)['Total_First_Vaccination'])}|text|class_name=h2|>
+<|{to_text(get_vaccination_stats(vaccination, selected_country)['Total_First_Vaccination'])}|text|class_name=h3|>
 |>
 
 <|card|
 **Vaccination rate**{: .color-primary}
-<|{to_text(get_vaccination_stats(vaccination, selected_country)['Rate_First_Vaccination'])} %|text|class_name=h2|>
+<|{to_text(get_vaccination_stats(vaccination, selected_country)['Rate_First_Vaccination'])} %|text|class_name=h3|>
 |>
 |>
 <br/>
