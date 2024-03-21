@@ -12,7 +12,7 @@ This page provides a view of the COVID-19 pandemic's impact in a selectd country
 
 <br/>
 
-<|layout|columns=2 2 2 2 2 1|gap=30px|
+<|layout|columns=2 2 2 2 2 1|gap=25px|
 <|card|
 **Deaths**{: .color-primary}
 <|{to_text(data_country_date.iloc[-1]['Deaths'])}|text|class_name=h2|>

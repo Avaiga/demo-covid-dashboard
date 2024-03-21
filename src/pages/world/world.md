@@ -3,7 +3,7 @@
 Tracking the Global Reach and Trends of the COVID-19 Pandemic.
 
 <br/>
-<|layout|columns=2 2 2 2 2 1|gap=30px|
+<|layout|columns=2 2 2 2 2 1|gap=25px|
 <|card|
 **Deaths**{: .color-primary}
 <|{to_text(np.sum(data_world_pie_absolute['Deaths']))}|text|class_name=h2|>
