@@ -3,7 +3,7 @@
 Tracking the Global Reach and Trends of the COVID-19 Pandemic.
 
 <br/>
-<|layout|columns=2 2 2 2 2 1|gap=35px|
+<|layout|columns=2 2 2 2 2 1|gap=30px|
 <|card|
 **Deaths**{: .color-primary}
 <|{to_text(np.sum(data_world_pie_absolute['Deaths']))}|text|class_name=h2|>
@@ -14,17 +14,17 @@ Tracking the Global Reach and Trends of the COVID-19 Pandemic.
 <|{to_text(np.sum(data_world_pie_absolute['Recovered']))}|text|class_name=h2|>
 |>
 
-<|part|class_name=card|
+<|card|
 **Confirmed**{: .color-primary}
 <|{to_text(np.sum(data_world_pie_absolute['Confirmed']))}|text|class_name=h2|>
 |>
 
-<|part|class_name=card|
-**Total vaccintion**{: .color-primary}
+<|card|
+**Total vaccination**{: .color-primary}
 <|{to_text(np.sum(vaccination['Total_First_Vaccination']))}|text|class_name=h2|>
 |>
 
-<|part|class_name=card|
+<|card|
 **Vaccination rate**{: .color-primary}
 <|{to_text(np.mean(vaccination['Rate_First_Vaccination']))} %|text|class_name=h2|>
 |>

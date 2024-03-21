@@ -1,9 +1,9 @@
 
 import numpy as np
-from taipy.gui import Markdown, notify
+from taipy.gui import Markdown
+import plotly.express as px
 
 from data.data import data, geojson, vaccination
-import plotly.express as px
 
 
 def initialize_map(data):
@@ -68,8 +68,6 @@ vaccination_map = px.choropleth_mapbox(vaccination,
 
 vaccination_map.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
-map_md = Markdown("pages/map/map.md")
-
 
 def on_change(state, var_name, var_value):
     if var_name == 'countries_selected' and len(var_value)>0:
@@ -86,6 +84,9 @@ def on_change(state, var_name, var_value):
     elif var_name == 'cluster_selected':    
         state.sum_deaths = data_province_displayed['Deaths'].sum()
         
+
+map_md = Markdown("pages/map/map.md")
+
 
 """
 # For Taipy charts

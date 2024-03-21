@@ -54,7 +54,6 @@ def on_change_country(state):
 
 def get_vaccination_stats(vaccination, selected_country):
     vaccination_stats = vaccination[vaccination['COUNTRY'] == selected_country]
-    print(vaccination_stats)
     return vaccination_stats
 
 
