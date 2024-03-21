@@ -34,7 +34,7 @@ This page provides a view of the COVID-19 pandemic's impact in a selectd country
 |>
 
 <|card|
-**Percentage of Vaccination**{: .color-primary}
+**Vaccination rate**{: .color-primary}
 <|{to_text(get_vaccination_stats(vaccination, selected_country)['Rate_First_Vaccination'])} %|text|class_name=h2|>
 |>
 |>
