@@ -3,7 +3,7 @@ import numpy as np
 
 import json
 
-from data.data import data
+from data.data import data, vaccination
 
 
 type_selector = ['Absolute', 'Relative']

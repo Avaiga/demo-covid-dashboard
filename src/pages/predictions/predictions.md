@@ -7,8 +7,13 @@
 <|{selected_scenario}|scenario_selector|>
 |sidebar>
 
-<scenario|part|render={selected_scenario}|
-# **Prediction**{: .color-primary} page
+<scenario|part|
+
+# Covid Dashboard - **Prediction**{: .color-primary} page
+
+Create a scenario, choose a date in 2020 and a country and simulate predictions with this information.
+
+<|part|render={selected_scenario}|
 
 <|1 1|layout|
 <date|
@@ -40,6 +45,7 @@
 <|{selected_data_node}|data_node|>
 |>
 |>
-
+|>
 |scenario>
+
 |>
