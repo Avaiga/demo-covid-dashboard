@@ -52,4 +52,11 @@ def on_change_country(state):
     convert_density(state)
 
 
+def get_vaccination_stats(vaccination, selected_country):
+    vaccination_stats = vaccination[vaccination['COUNTRY'] == selected_country]
+    if len(vaccination_stats) == 0:
+        return {"Total_First_Vaccination": 0, "Rate_First_Vaccination": 0}
+    return vaccination_stats
+
+
 country_md = Markdown("pages/country/country.md")
