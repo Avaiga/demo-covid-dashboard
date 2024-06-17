@@ -3,7 +3,7 @@ import pandas as pd
 
 from taipy.gui import Markdown
 
-from data.data import data
+from data.data import data, vaccination
 
 selected_country = 'France'
 data_country_date = None
