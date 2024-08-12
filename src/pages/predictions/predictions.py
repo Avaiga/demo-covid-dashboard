@@ -5,20 +5,23 @@ import datetime as dt
 selected_data_node = None
 selected_scenario = None
 selected_date = None
-default_result = {"Date": [dt.datetime(2020,10,1)], "Deaths": [0], "ARIMA": [0], "Linear Regression": [0]}
+results = {"Date": [dt.datetime(2020,10,1)], "Deaths": [0], "ARIMA": [0], "Linear Regression": [0]}
+
+
+def get_result(scenario):
+    if scenario is None or isinstance(scenario, str) or not scenario.result.is_ready_for_reading:
+        return results
+    return scenario.result.read()
 
 
 def on_submission_change(state, submitable, details):
     if details['submission_status'] == 'COMPLETED':
-        state.refresh('selected_scenario')
+        state.results = get_result(state.selected_scenario)
         notify(state, "success", "Predictions ready!")
         print("Predictions ready!")
     elif details['submission_status'] == 'FAILED':
         notify(state, "error", "Submission failed!")
         print("Submission failed!")
-    else:
-        notify(state, "info", "In progress...")
-        print("In progress...")
 
 
 def on_change_params(state):
@@ -38,6 +41,7 @@ def on_change(state, var_name, var_value):
     if var_name == 'selected_scenario' and var_value:
         state.selected_date = state.selected_scenario.date.read()
         state.selected_country = state.selected_scenario.country.read()
+        state.results = get_result(state.selected_scenario)
 
 
 predictions_md = Markdown("pages/predictions/predictions.md")

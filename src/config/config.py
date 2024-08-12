@@ -6,7 +6,7 @@ from algos.algos import add_features, create_train_data, preprocess,\
                         forecast, forecast_linear_regression,\
                         concat
 
-#Config.configure_job_executions(mode="standalone", nb_of_workers=2)
+Config.configure_job_executions(mode="standalone", nb_of_workers=1)
 
 path_to_data = "data/covid-19-all.csv"
 

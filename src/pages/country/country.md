@@ -4,7 +4,7 @@ This page provides a view of the COVID-19 pandemic's impact in a selectd country
 
 <br/>
 
-<|layout|columns=1 1 1|
+<|layout|columns=1 1 1|columns[mobile]=1|
 <|{selected_country}|selector|lov={selector_country}|on_change=on_change_country|dropdown|label=Country|>
 
 <|{selected_representation}|toggle|lov={representation_selector}|on_change=convert_density|>
@@ -12,7 +12,7 @@ This page provides a view of the COVID-19 pandemic's impact in a selectd country
 
 <br/>
 
-<|layout|columns=2 2 2 2 2 1|gap=25px|
+<|layout|columns=2 2 2 2 2 1|gap=25px|columns[mobile]=1|
 <|card|
 **Deaths**{: .color-primary}
 <|{to_text(data_country_date.iloc[-1]['Deaths'])}|text|class_name=h3|>
@@ -40,7 +40,7 @@ This page provides a view of the COVID-19 pandemic's impact in a selectd country
 |>
 <br/>
 
-<|layout|columns=2 1|
+<|layout|columns=2 1|columns[mobile]=1|
 <|{data_country_date}|chart|type=bar|x=Date|y[3]=Deaths|y[2]=Recovered|y[1]=Confirmed|layout={layout}|options={options}|title=Covid Evolution|>
 
 <|{pie_chart}|chart|type=pie|values=values|labels=labels|title=Distribution between cases|>

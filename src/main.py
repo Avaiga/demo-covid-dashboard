@@ -19,9 +19,10 @@ pages = {
 }
 
 
-gui_multi_pages = Gui(pages=pages)
 
 if __name__ == '__main__':
+    gui_multi_pages = Gui(pages=pages)
+
     tp.Core().run()
     
     gui_multi_pages.run(title="Covid Dashboard")

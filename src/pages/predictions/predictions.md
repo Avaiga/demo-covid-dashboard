@@ -1,6 +1,6 @@
   
   
-<|layout|columns=2 9|gap=50px|
+<|layout|columns=2 9|gap=50px|columns[mobile]=1|
 <sidebar|sidebar|
 **Scenario** Creation
 
@@ -35,7 +35,7 @@ Create a scenario, choose a date in 2020 and a country and simulate predictions 
 
 ## **Predictions**{: .color-primary} and explorer of data nodes
 
-<|{selected_scenario.result.read() if selected_scenario and selected_scenario.result.read() is not None else default_result}|chart|x=Date|y[1]=Deaths|y[2]=Linear Regression|y[3]=ARIMA|type[1]=bar|title=Predictions|>
+<|{results}|chart|x=Date|y[1]=Deaths|y[2]=Linear Regression|y[3]=ARIMA|type[1]=bar|title=Predictions|>
 
 
 <|Data Nodes|expandable|

@@ -3,7 +3,7 @@
 Tracking the Global Reach and Trends of the COVID-19 Pandemic.
 
 <br/>
-<|layout|columns=2 2 2 2 2 1|gap=15px|
+<|layout|columns=2 2 2 2 2 1|gap=15px|columns[mobile]=1|
 <|card|
 **Deaths**{: .color-primary}
 <|{to_text(np.sum(data_world_pie_absolute['Deaths']))}|text|class_name=h3|>
@@ -35,7 +35,7 @@ Tracking the Global Reach and Trends of the COVID-19 Pandemic.
 <|{selected_type}|toggle|lov={type_selector}|>
 
 <|part|render={selected_type=='Absolute'}|
-<|layout|columns=1 2|
+<|layout|columns=1 2|columns[mobile]=1|
 <|{data_world_pie_absolute}|chart|type=pie|labels=Country/Region|values=Deaths|title=Distribution around the World|>
 
 <|{data_world_evolution_absolute}|chart|properties={data_world_evolution_absolute_properties}|title=Evolution around the World|>
@@ -45,7 +45,7 @@ Tracking the Global Reach and Trends of the COVID-19 Pandemic.
 |>
 
 <|part|render={selected_type=='Relative'}|
-<|layout|columns=1 2|
+<|layout|columns=1 2|columns[mobile]=1|
 <|{data_world_pie_relative}|chart|type=pie|labels=Country/Region|values=Deaths/100k|>
 
 <|{data_world_evolution_relative}|chart|properties={data_world_evolution_relative_properties}|>

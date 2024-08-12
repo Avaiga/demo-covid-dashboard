@@ -1,4 +1,6 @@
-src/.data
+src/.taipy
+src/user_data
 *.pyc
 *.zip
 src/.vscode/launch.json
+src/.vscode/settings.json
