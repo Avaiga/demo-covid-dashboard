@@ -11,18 +11,17 @@ from config.config import Config
 
 
 pages = {
-    '/':root,
-    "Country":country_md,
-    "World":world_md,
-    "Map":map_md,
-    "Predictions":predictions_md
+    "/": root,
+    "Country": country_md,
+    "World": world_md,
+    "Map": map_md,
+    "Predictions": predictions_md,
 }
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     gui_multi_pages = Gui(pages=pages)
 
     tp.Core().run()
-    
-    gui_multi_pages.run(title="Covid Dashboard")
+
+    gui_multi_pages.run(title="Covid Dashboard", port=2562)
