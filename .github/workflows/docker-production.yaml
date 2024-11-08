@@ -31,5 +31,5 @@ jobs:
 
       - name: 'Build & push image'
         run: |
-          docker build -t ${{ vars.DOCKER_REGISTRY }}/datauv:${GITHUB_REF#refs/tags/} .
-          docker push ${{ vars.DOCKER_REGISTRY }}/datauv:${GITHUB_REF#refs/tags/}
+          docker build -t ${{ vars.DOCKER_REGISTRY }}/datauv:$GITHUB_SHA .
+          docker push ${{ vars.DOCKER_REGISTRY }}/datauv:$GITHUB_SHA
