@@ -1,10 +1,12 @@
 # This file was automatically generated.
 # Please, do not edit it manually.
 
-name: Build Docker Image
+name: Build Docker Image production
 
 on:
-  push:
+  release:
+    types:
+      - released
 
 permissions:
   id-token: write
@@ -31,5 +33,5 @@ jobs:
 
       - name: 'Build & push image'
         run: |
-          docker build -t ${{ vars.DOCKER_REGISTRY }}/datauv:$GITHUB_SHA .
-          docker push ${{ vars.DOCKER_REGISTRY }}/datauv:$GITHUB_SHA
+          docker build -t ${{ vars.DOCKER_REGISTRY }}/covid-dashboard:production .
+          docker push ${{ vars.DOCKER_REGISTRY }}/covid-dashboard:production
