@@ -27,6 +27,6 @@ def on_init(state):
 if __name__ == "__main__":
     gui_multi_pages = Gui(pages=pages)
 
-    tp.Core().run()
+    tp.Orchestrator().run()
 
     gui_multi_pages.run(title="Covid Dashboard", margin="0px")
