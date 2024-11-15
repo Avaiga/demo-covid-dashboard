@@ -4,3 +4,9 @@ src/user_data
 *.zip
 src/.vscode/launch.json
 src/.vscode/settings.json
+
+
+src_tgb/.taipy
+src_tgb/user_data
+src_tgb/.vscode/launch.json
+src_tgb/.vscode/settings.json

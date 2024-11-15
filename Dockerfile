@@ -14,10 +14,10 @@ FROM python:3.11
 WORKDIR /app
 
 # Install application dependencies.
-COPY src/requirements.txt .
+COPY src_tgb/requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy the application source code.
-COPY src .
+COPY src_tgb .
 
 CMD ["taipy", "run", "--no-debug", "--no-reloader", "main.py", "-H", "0.0.0.0", "-P", "5000"]

@@ -26,7 +26,7 @@ This demo visualizes a Covid dataset for the year 2020. Pages shows different gr
 
 ## How to run
 
-This demo works with a Python version superior to 3.8. Install the dependencies of the *Pipfile* and run the *main.py* in the `src/` folder. You can also find a *requirements.txt* in the `src/` folder.
+This demo works with a Python version superior to 3.8. Install the dependencies of the *Pipfile* and run the *main.py* in the `src_tgb/` folder. You can also find a *requirements.txt* in the `src_tgb/` folder.
 
 ## Introduction
 
@@ -55,12 +55,12 @@ Statistics on the World are presented on the page. A line chart and pie chart di
 ## Directory Structure
 
 
-- `src/`: Contains the demo source code.
-  - `src/algos`: Contains the functions to be executed as tasks by Taipy.
-  - `src/config`: Contains the configuration files.
-  - `src/data`: Contains the application data files.
-  - `src/images`: Contains the application image files.
-  - `src/pages`: Contains the page definition files.
+- `src_tgb/`: Contains the demo source code.
+  - `src_tgb/algos`: Contains the functions to be executed as tasks by Taipy.
+  - `src_tgb/config`: Contains the configuration files.
+  - `src_tgb/data`: Contains the application data files.
+  - `src_tgb/images`: Contains the application image files.
+  - `src_tgb/pages`: Contains the page definition files.
 - `docs/`: contains the images for the documentation
 - `CODE_OF_CONDUCT.md`: Code of conduct for members and contributors of _demo-covid-dashboard_.
 - `CONTRIBUTING.md`: Instructions to contribute to _demo-covid-dashboard_.
