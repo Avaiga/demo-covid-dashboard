@@ -2,6 +2,7 @@
     height: auto;
 }
 
+/* Bold text are now in primary color */
 strong, b  {
     font-weight: bold;
     color : var(--color-primary);
@@ -11,22 +12,25 @@ strong, b  {
     line-height: 0px;
 }
 
-
+/* Restrict width of page */
 .content{
     margin-left: 2%;
     margin-right: 2%;
 }
 
+/* Change behavior of sticky header */
 .header.sticky{
     overflow:auto;
     z-index: 2;
 }
 
+/* Change the width of the sticky header content */
 .header-content{
     margin-left: 2%;
     margin-right: 7%;
 }
 
+/* Change the color of the tabs */
 .header .MuiButtonBase-root.MuiTab-root{
     border: 1px solid var(--color-primary); /* Thin line with 1px width, change color as needed */
     border-radius: 25px; /* Adjust this value for more or less rounding */
@@ -42,32 +46,28 @@ strong, b  {
 }
 
 
+/* Hide "Mode" in theme toggle */
 .css-6fy833 p{
     opacity: 0;
 }
 
-
-
+/* Change position of theme toggle */
 .css-6fy833 .MuiToggleButtonGroup-root{
     top: 0.1rem !important;
     right: 0.5rem ! important;
     position: fixed;
 }
 
+/* Add margin to charts */
 .taipy-chart{
     margin:5px;
 }
 
-
-
-/* Toggle Button */
-
-/* Toggle Button */
+/* Change all toggles */
 .taipy-toggle .MuiToggleButtonGroup-root{
     height: 50px;
 }
 
-/* Toggle Button Selected */
 .taipy-toggle .Mui-selected{
     background-color: var(--color-primary);
     color:white;
