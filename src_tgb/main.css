@@ -8,8 +8,12 @@ strong, b  {
     color : var(--color-primary);
 }
 
+h1, .h1 {
+    line-height: 15px;
+}
+
 .card p{
-    line-height: 0px;
+    line-height: 1rem;
 }
 
 /* Restrict width of page */
