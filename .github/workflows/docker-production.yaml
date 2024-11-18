@@ -33,3 +33,8 @@ jobs:
         run: |
           docker build -t ${{ vars.DOCKER_REGISTRY }}/datauv:$GITHUB_SHA .
           docker push ${{ vars.DOCKER_REGISTRY }}/datauv:$GITHUB_SHA
+          
+      - name: 'Build & push image to prod'
+        run: |
+          docker build -t ${{ vars.DOCKER_REGISTRY }}/covid-dashboard:production .
+          docker push ${{ vars.DOCKER_REGISTRY }}/covid-dashboard:production
