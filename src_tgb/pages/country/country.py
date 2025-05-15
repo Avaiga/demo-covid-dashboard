@@ -6,7 +6,7 @@ import taipy.gui.builder as tgb
 from utils import to_text
 from data.data import data, vaccination
 
-selected_country = "France"
+# selected_country = "France"
 data_country_date = None
 
 representation_selector = ["Cumulative", "Density"]

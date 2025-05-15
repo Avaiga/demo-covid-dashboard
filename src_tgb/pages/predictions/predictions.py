@@ -1,5 +1,6 @@
 import datetime as dt
 import taipy.gui.builder as tgb
+from taipy.gui import notify
 
 selected_data_node = None
 selected_scenario = None
@@ -38,7 +39,7 @@ def on_change_params(state):
         state.selected_date = dt.datetime(2020, 10, 1)
         return
 
-    state.selected_scenario.date.write(state.selected_date.replace(tzinfo=None))
+    state.selected_scenario.date.write(state.selected_date)
     state.selected_scenario.country.write(state.selected_country)
     notify(state, "success", "Scenario parameters changed!")
 
@@ -71,7 +72,6 @@ with tgb.Page() as predictions_page:
                     with tgb.part("date"):
                         tgb.text("#### First **day** of prediction", mode="md")
                         tgb.date("{selected_date}", on_change=on_change_params)
-
                     with tgb.part("country"):
                         tgb.text("#### **Country** of prediction", mode="md")
                         tgb.selector(
