@@ -8,7 +8,7 @@ dependencies = [
     "numpy==1.24.2",
     "plotly>=6.0.1",
     "pmdarima==2.0.2",
-    "scikit-learn==1.2.1",
+    "scikit-learn==1.5.1",
     "taipy",
 ]
 
