@@ -1,5 +1,0 @@
-numpy==1.24.2
-taipy==4.0.1.dev0
-scikit-learn==1.2.1
-pmdarima==2.0.2
-plotly

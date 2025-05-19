@@ -8,9 +8,17 @@ dependencies = [
     "numpy==1.24.2",
     "plotly>=6.0.1",
     "pmdarima==2.0.2",
+    "pytest-cov>=6.1.1",
+    "pytest>=8.3.5",
     "scikit-learn==1.2.1",
     "taipy",
 ]
 
-[tool.uv.sources]
-taipy = { git = "https://github.com/Avaiga/taipy.git" }
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
