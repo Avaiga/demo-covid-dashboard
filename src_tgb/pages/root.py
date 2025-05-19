@@ -25,7 +25,7 @@ with tgb.Page() as root:
 
             with tgb.part("text-center"):
                 tgb.navbar(
-                    lov="{creates_pages(pages)}",
+                    lov=lambda pages: creates_pages(pages),
                     inline=True,
                 )
 

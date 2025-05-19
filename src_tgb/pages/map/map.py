@@ -46,28 +46,26 @@ cluster_map = create_cluster_map(data_province_displayed)
 def on_change(state, var_name, var_value):
     if isinstance(var_value, list) and len(var_value) > 0:
         var_value = var_value[0]
-        if var_name == "countries_selected" and len(var_value) > 0:
-            var_value = list(var_value)
-            # Mean rate of vaccination:
-            state.mean_rate_of_vaccination = state.vaccination.loc[
-                var_value, "Rate_First_Vaccination"
-            ].mean()
-            # Sum count of vaccination:
-            state.sum_vaccination = state.vaccination.loc[
-                var_value, "Total_First_Vaccination"
-            ].sum()
-        elif var_name == "countries_selected":
-            state.mean_rate_of_vaccination = np.mean(
-                vaccination["Rate_First_Vaccination"]
-            )
-            state.sum_vaccination = vaccination["Total_First_Vaccination"].sum()
-        if var_name == "cluster_selected" and len(var_value) > 0:
-            # Sum of deaths
-            state.sum_deaths = state.data_province_displayed.loc[
-                var_value, "Deaths"
-            ].sum()
-        elif var_name == "cluster_selected":
-            state.sum_deaths = data_province_displayed["Deaths"].sum()
+    if var_name == "countries_selected" and len(var_value) > 0:
+        var_value = list(var_value)
+        # Mean rate of vaccination:
+        state.mean_rate_of_vaccination = state.vaccination.loc[
+            var_value, "Rate_First_Vaccination"
+        ].mean()
+        # Sum count of vaccination:
+        state.sum_vaccination = state.vaccination.loc[
+            var_value, "Total_First_Vaccination"
+        ].sum()
+    elif var_name == "countries_selected":
+        state.mean_rate_of_vaccination = np.mean(
+            state.vaccination["Rate_First_Vaccination"]
+        )
+        state.sum_vaccination = state.vaccination["Total_First_Vaccination"].sum()
+    if var_name == "cluster_selected" and len(var_value) > 0:
+        # Sum of deaths
+        state.sum_deaths = state.data_province_displayed.loc[var_value, "Deaths"].sum()
+    elif var_name == "cluster_selected":
+        state.sum_deaths = state.data_province_displayed["Deaths"].sum()
 
 
 with tgb.Page() as map_page:

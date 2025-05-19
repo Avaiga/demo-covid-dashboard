@@ -3,7 +3,6 @@ from sklearn.linear_model import LinearRegression
 import datetime as dt
 import numpy as np
 from pmdarima import auto_arima
-import time
 
 
 def add_features(data):

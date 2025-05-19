@@ -3,7 +3,7 @@ from data.data import geojson
 
 
 def create_choropleth_mapbox(vaccination):
-    if vaccination is None:
+    if vaccination is None or vaccination.empty:
         return None
     vaccination_map = px.choropleth_mapbox(
         vaccination,
@@ -29,7 +29,7 @@ def create_choropleth_mapbox(vaccination):
 
 
 def create_cluster_map(data_province_displayed):
-    if data_province_displayed is None:
+    if data_province_displayed is None or data_province_displayed.empty:
         return None
     cluster_map = px.scatter_mapbox(
         data_province_displayed,

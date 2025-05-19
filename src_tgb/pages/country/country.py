@@ -81,7 +81,11 @@ def get_vaccination_stats(vaccination, selected_country):
     vaccination_stats = vaccination[vaccination["COUNTRY"] == selected_country]
     if len(vaccination_stats) == 0:
         return {"Total_First_Vaccination": 0, "Rate_First_Vaccination": 0}
-    return vaccination_stats
+    row = vaccination_stats.iloc[0]  # Safely extract the first matching row
+    return {
+        "Total_First_Vaccination": row["Total_First_Vaccination"],
+        "Rate_First_Vaccination": row["Rate_First_Vaccination"],
+    }
 
 
 with tgb.Page() as country_page:
