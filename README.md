@@ -26,7 +26,7 @@ This demo visualizes a Covid dataset for the year 2020. Pages shows different gr
 
 ## How to run
 
-This demo works with a Python version superior to 3.8. Install the dependencies of the *Pipfile* and run the *main.py* in the `src_tgb/` folder. You can also find a *requirements.txt* in the `src_tgb/` folder.
+This demo works with a Python version superior to 3.8. Install the dependencies of the *requirements.txt* and run the *main.py* in the `src_tgb/` folder. 
 
 ## Introduction
 
@@ -61,12 +61,13 @@ Statistics on the World are presented on the page. A line chart and pie chart di
   - `src_tgb/data`: Contains the application data files.
   - `src_tgb/images`: Contains the application image files.
   - `src_tgb/pages`: Contains the page definition files.
+- `src/`: Contains the same demo in Markdown.
 - `docs/`: contains the images for the documentation
 - `CODE_OF_CONDUCT.md`: Code of conduct for members and contributors of _demo-covid-dashboard_.
 - `CONTRIBUTING.md`: Instructions to contribute to _demo-covid-dashboard_.
 - `INSTALLATION.md`: Instructions to install _demo-covid-dashboard_.
 - `LICENSE`: The Apache 2.0 License.
-- `Pipfile`: File used by the Pipenv virtual environment to manage project dependencies.
+- `requirements.txt`: Contains the dependencies of the demo.
 - `README.md`: Current file.
 
 ## License
